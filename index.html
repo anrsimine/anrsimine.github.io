@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>韦钧舰 | Academic Homepage</title>
+  <meta name="description" content="韦钧舰，华中师范大学计算机学院软件工程专业，研究方向为机器人抓取。">
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5d6975;
+      --line: #d9dee5;
+      --paper: #f7f8fa;
+      --panel: #ffffff;
+      --blue: #1f5f8b;
+      --teal: #257a76;
+      --gold: #a66b18;
+      --soft-blue: #eaf2f8;
+      --soft-teal: #e8f4f2;
+      --soft-gold: #f7efe3;
+      --shadow: 0 18px 45px rgba(23, 33, 43, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Source Han Sans SC", "Noto Sans CJK SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.68;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(217, 222, 229, 0.9);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1120px;
+      min-height: 58px;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    nav a {
+      color: #334150;
+    }
+
+    .hero {
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(234, 242, 248, 0.98), rgba(255, 255, 255, 0.98) 44%, rgba(247, 239, 227, 0.86)),
+        var(--panel);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+      align-items: center;
+      max-width: 1120px;
+      min-height: 520px;
+      margin: 0 auto;
+      padding: 56px 24px 44px;
+      gap: 44px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 18px 0 0;
+      color: #354453;
+      font-size: 19px;
+    }
+
+    .meta-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta-line li {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      padding: 6px 12px;
+      color: #334150;
+      font-size: 14px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border: 1px solid #1f5f8b;
+      border-radius: 6px;
+      padding: 9px 16px;
+      background: #1f5f8b;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      background: #174d72;
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: #fff;
+      color: #263442;
+    }
+
+    .button.secondary:hover {
+      background: #f1f4f7;
+    }
+
+    .research-figure {
+      overflow: hidden;
+      border: 1px solid rgba(31, 95, 139, 0.18);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .research-figure svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
+
+    .figure-caption {
+      border-top: 1px solid var(--line);
+      padding: 14px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      background: #fbfcfd;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 42px 24px 64px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 286px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 82px;
+    }
+
+    .profile-panel,
+    .section,
+    .item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .profile-panel {
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(23, 33, 43, 0.05);
+    }
+
+    .portrait {
+      display: grid;
+      place-items: center;
+      min-height: 150px;
+      background: linear-gradient(135deg, var(--soft-blue), var(--soft-teal));
+      color: var(--blue);
+    }
+
+    .portrait img {
+      width: 96px;
+      height: 96px;
+      border: 2px solid rgba(31, 95, 139, 0.25);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.75);
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(23, 33, 43, 0.12);
+    }
+
+    .profile-body {
+      padding: 20px;
+    }
+
+    .profile-body h2 {
+      margin: 0 0 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .profile-body p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .contact-list li {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .content {
+      display: grid;
+      gap: 24px;
+    }
+
+    .section {
+      padding: 26px;
+    }
+
+    .section h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      line-height: 1.25;
+    }
+
+    .section h2::before {
+      content: "";
+      width: 7px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .section p {
+      margin: 0 0 14px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .item {
+      padding: 18px;
+    }
+
+    .item h3 {
+      margin: 0 0 8px;
+      color: #203142;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline li {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .timeline li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .date {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      border: 1px solid rgba(37, 122, 118, 0.22);
+      border-radius: 999px;
+      background: var(--soft-teal);
+      padding: 5px 10px;
+      color: #1e625f;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .note {
+      border-left: 4px solid var(--blue);
+      padding: 12px 14px;
+      background: var(--soft-blue);
+      color: #334150;
+      font-size: 14px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 24px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 880px) {
+      nav {
+        display: none;
+      }
+
+      .hero-inner,
+      .layout,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        min-height: auto;
+        padding-top: 40px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .timeline li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar-inner,
+      main,
+      .hero-inner,
+      .footer-inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="页面导航">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">韦钧舰 <span>Academic Homepage</span></a>
+      <nav aria-label="主导航">
+        <a href="#about">简介</a>
+        <a href="#research">研究方向</a>
+        <a href="#education">教育经历</a>
+        <a href="#projects">项目</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Computer Science · Robotic Grasping</p>
+        <h1>韦钧舰</h1>
+        <p class="subtitle">
+          华中师范大学计算机学院软件工程专业学生，关注机器人抓取、感知与智能操作，希望将可靠的软件工程方法与具身智能研究结合起来。
+        </p>
+        <ul class="meta-line" aria-label="个人概览">
+          <li>Wuhan, Hubei, China</li>
+          <li>School of Computer Science, CCNU</li>
+          <li>Software Engineering</li>
+          <li>Born in 2002.09</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="button" href="#research">Research Interests</a>
+          <a class="button secondary" href="https://github.com/anrsimine">GitHub Profile</a>
+        </div>
+      </div>
+
+      <figure class="research-figure" aria-label="机器人抓取研究示意图">
+        <svg viewBox="0 0 640 480" role="img" aria-labelledby="figure-title figure-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="figure-title">Robotic grasping research illustration</title>
+          <desc id="figure-desc">A schematic robotic gripper approaches an object with perception and planning signals.</desc>
+          <rect width="640" height="480" fill="#f8fbfd"/>
+          <rect x="58" y="344" width="524" height="30" rx="4" fill="#dce5ed"/>
+          <rect x="102" y="374" width="436" height="16" rx="3" fill="#c6d2dc"/>
+          <path d="M168 312 C216 264, 280 264, 322 312" fill="none" stroke="#257a76" stroke-width="10" stroke-linecap="round"/>
+          <path d="M472 312 C424 264, 360 264, 318 312" fill="none" stroke="#257a76" stroke-width="10" stroke-linecap="round"/>
+          <rect x="276" y="270" width="88" height="86" rx="8" fill="#1f5f8b"/>
+          <circle cx="320" cy="313" r="18" fill="#eaf2f8"/>
+          <path d="M320 270 L320 120" stroke="#1f5f8b" stroke-width="16" stroke-linecap="round"/>
+          <rect x="268" y="82" width="104" height="52" rx="8" fill="#263442"/>
+          <path d="M274 98 L368 98" stroke="#f7efe3" stroke-width="5" stroke-linecap="round"/>
+          <path d="M248 136 L196 206" stroke="#334150" stroke-width="12" stroke-linecap="round"/>
+          <path d="M392 136 L444 206" stroke="#334150" stroke-width="12" stroke-linecap="round"/>
+          <path d="M196 206 L176 252" stroke="#334150" stroke-width="12" stroke-linecap="round"/>
+          <path d="M444 206 L464 252" stroke="#334150" stroke-width="12" stroke-linecap="round"/>
+          <path d="M164 250 L220 254" stroke="#a66b18" stroke-width="10" stroke-linecap="round"/>
+          <path d="M476 250 L420 254" stroke="#a66b18" stroke-width="10" stroke-linecap="round"/>
+          <rect x="280" y="346" width="80" height="28" rx="5" fill="#a66b18"/>
+          <rect x="292" y="318" width="56" height="32" rx="5" fill="#c8872c"/>
+          <circle cx="154" cy="110" r="34" fill="#e8f4f2" stroke="#257a76" stroke-width="3"/>
+          <path d="M138 110 L150 122 L172 96" fill="none" stroke="#257a76" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="486" cy="118" r="42" fill="#eaf2f8" stroke="#1f5f8b" stroke-width="3"/>
+          <path d="M466 118 C476 98, 496 98, 506 118 C496 138, 476 138, 466 118Z" fill="none" stroke="#1f5f8b" stroke-width="5"/>
+          <circle cx="486" cy="118" r="6" fill="#1f5f8b"/>
+          <path d="M188 118 C226 86, 270 74, 320 74 C370 74, 414 86, 452 118" fill="none" stroke="#d8b274" stroke-width="4" stroke-dasharray="9 10"/>
+          <path d="M204 166 C250 146, 390 146, 436 166" fill="none" stroke="#92b6ce" stroke-width="4" stroke-dasharray="8 10"/>
+          <text x="320" y="426" text-anchor="middle" fill="#5d6975" font-family="Arial, sans-serif" font-size="18">Perception · Planning · Grasp Execution</text>
+        </svg>
+        <figcaption class="figure-caption">Research focus: perception-guided grasp planning and reliable robot manipulation.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main>
+    <div class="layout">
+      <aside class="sidebar" aria-label="个人信息">
+        <section class="profile-panel">
+          <div class="portrait">
+            <img src="https://avatars.githubusercontent.com/u/125373330?v=4" alt="韦钧舰的 GitHub 头像">
+          </div>
+          <div class="profile-body">
+            <h2>韦钧舰</h2>
+            <p>软件工程专业 · 华中师范大学计算机学院</p>
+            <ul class="contact-list" id="contact">
+              <li><strong>Location:</strong> Wuhan, Hubei, China</li>
+              <li><strong>Research:</strong> Robotic Grasping</li>
+              <li><strong>GitHub:</strong> <a href="https://github.com/anrsimine">anrsimine</a></li>
+              <li><strong>Email:</strong> to be added</li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+
+      <div class="content">
+        <section class="section" id="about">
+          <h2>About</h2>
+          <p>
+            我目前就读于中国湖北省武汉市华中师范大学计算机学院，专业方向为软件工程。我的研究兴趣集中在机器人抓取领域，尤其关注机器人如何通过视觉感知、几何理解与运动规划，在复杂场景中完成稳定、可复现的物体抓取。
+          </p>
+          <p>
+            I am interested in building intelligent robotic systems that can perceive objects, reason about grasp affordances, and execute manipulation actions with robustness and clarity.
+          </p>
+        </section>
+
+        <section class="section" id="research">
+          <h2>Research Interests</h2>
+          <div class="two-col">
+            <article class="item">
+              <h3>Robotic Grasping</h3>
+              <p>面向未知物体与非结构化环境的抓取检测、抓取姿态估计与执行稳定性研究。</p>
+            </article>
+            <article class="item">
+              <h3>Robot Perception</h3>
+              <p>关注视觉、深度信息与几何表征在机器人操作任务中的融合与应用。</p>
+            </article>
+            <article class="item">
+              <h3>Manipulation Planning</h3>
+              <p>探索从感知结果到可执行动作之间的规划、评估与闭环控制方法。</p>
+            </article>
+            <article class="item">
+              <h3>Software Engineering for Robotics</h3>
+              <p>重视工程可复现性、模块化系统设计，以及实验流程的可靠自动化。</p>
+            </article>
+          </div>
+          <div class="tags" aria-label="研究关键词">
+            <span class="tag">Robotics</span>
+            <span class="tag">Grasp Detection</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Embodied AI</span>
+            <span class="tag">Software Engineering</span>
+          </div>
+        </section>
+
+        <section class="section" id="education">
+          <h2>Education</h2>
+          <ul class="timeline">
+            <li>
+              <span class="date">Present</span>
+              <div>
+                <strong>华中师范大学 · 计算机学院</strong><br>
+                软件工程专业，研究方向为机器人抓取。
+              </div>
+            </li>
+            <li>
+              <span class="date">2002.09</span>
+              <div>
+                <strong>出生于湖北武汉</strong><br>
+                Born in Wuhan, Hubei, China.
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <section class="section" id="projects">
+          <h2>Projects</h2>
+          <div class="two-col">
+            <article class="item">
+              <h3>Robot Grasping Study</h3>
+              <p>围绕机器人抓取任务整理数据、方法与实验流程；后续可补充具体项目名称、代码链接、实验平台与成果。</p>
+            </article>
+            <article class="item">
+              <h3>Academic Portfolio</h3>
+              <p>用于持续记录学习经历、研究兴趣、项目进展与开源代码，便于申请、交流与学术展示。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="publications">
+          <h2>Publications</h2>
+          <p class="note">
+            Publications and preprints will be listed here. 可在后续版本中添加论文题目、作者列表、会议/期刊、PDF、代码与项目主页链接。
+          </p>
+        </section>
+
+        <section class="section" id="news">
+          <h2>News</h2>
+          <ul class="timeline">
+            <li>
+              <span class="date">2026</span>
+              <div>Academic homepage launched on GitHub Pages.</div>
+            </li>
+            <li>
+              <span class="date">Now</span>
+              <div>Actively exploring robotic grasping and intelligent manipulation.</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      © 2026 韦钧舰. Built as a static academic homepage for GitHub Pages.
+    </div>
+  </footer>
+</body>
+</html>
