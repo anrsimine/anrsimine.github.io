@@ -10,11 +10,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
         
         :root {
-            --accent: #1e40af;
+            --accent: #0f766e;
+            --ink: #102033;
+            --paper: #f8fafc;
         }
         
         body {
-            font-family: 'Inter', system_ui, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
+            background:
+                linear-gradient(180deg, #f8fafc 0%, #eef6f5 42%, #f8fafc 100%);
         }
         
         .heading-serif {
@@ -24,10 +28,10 @@
         .section-header {
             font-size: 1.5rem;
             font-weight: 600;
-            color: #1e2937;
+            color: var(--ink);
             margin-bottom: 1.25rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e2e8f0;
+            border-bottom: 2px solid #d7e4e2;
         }
 
         .academic-card {
@@ -44,28 +48,71 @@
         }
         
         .nav-link:hover {
-            color: #1e40af;
+            color: var(--accent);
         }
 
         .research-tag {
-            background-color: #f1f5f9;
-            color: #334155;
-            font-size: 0.875rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-weight: 500;
+            display: flex;
+            min-height: 118px;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(15, 118, 110, 0.18);
+            border-radius: 1.1rem;
+            background: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 12px 30px rgb(15 23 42 / 0.06);
+        }
+
+        .research-tag strong {
+            color: #0f172a;
+            font-size: 1.05rem;
+            line-height: 1.2;
+        }
+
+        .research-tag span {
+            margin-top: 0.55rem;
+            color: #64748b;
+            font-size: 0.8rem;
+            line-height: 1.35;
+        }
+
+        .hero-card {
+            border: 1px solid rgba(15, 118, 110, 0.16);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 24px 70px rgb(15 23 42 / 0.09);
+        }
+
+        .signal {
+            border-left: 4px solid var(--accent);
+            background: #f0fdfa;
+        }
+
+        .focus-card {
+            border: 1px solid #d7e4e2;
+            background: #ffffff;
+        }
+
+        .focus-icon {
+            display: inline-flex;
+            width: 2.1rem;
+            height: 2.1rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.8rem;
+            background: #f0fdfa;
+            color: var(--accent);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="text-slate-800">
     <!-- Top Navigation -->
-    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-x-3">
-                <a href="#" class="text-2xl font-semibold tracking-tight text-slate-900">Junjian Wei</a>
-                <span class="text-sm px-3 py-1 bg-slate-100 text-slate-600 rounded-full font-medium">Undergraduate</span>
+                <a href="#" class="text-2xl font-semibold tracking-tight text-slate-950">Junjian Wei</a>
+                <span class="text-xs px-3 py-1 bg-teal-50 text-teal-700 rounded-full font-semibold uppercase tracking-wide">Robotics</span>
             </div>
-            <div class="flex items-center gap-x-8 text-sm font-medium">
+            <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
                 <a href="#about" class="nav-link text-slate-600 hover:text-slate-900">About</a>
                 <a href="#research" class="nav-link text-slate-600 hover:text-slate-900">Research</a>
                 <a href="#education" class="nav-link text-slate-600 hover:text-slate-900">Education</a>
@@ -77,42 +124,82 @@
     </nav>
 
     <!-- Hero / Header -->
-    <header class="max-w-5xl mx-auto px-6 pt-16 pb-12">
-        <div class="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <!-- Photo placeholder -->
-            <div class="w-36 h-36 bg-slate-200 rounded-2xl flex-shrink-0 overflow-hidden border border-slate-300 shadow-sm">
-                <!-- Replace with your professional photo -->
-                <div class="w-full h-full flex items-center justify-center text-slate-400">
-                    <i class="fa-solid fa-user text-6xl"></i>
+    <header class="max-w-6xl mx-auto px-6 pt-12 pb-14">
+        <div class="hero-card rounded-[2rem] p-7 md:p-10">
+            <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
+                <div>
+                    <div class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
+                        <span class="h-2 w-2 rounded-full bg-teal-500"></span>
+                        Academic Homepage
+                    </div>
+                    <h1 class="mt-5 text-5xl md:text-6xl font-semibold tracking-tight text-slate-950">Junjian Wei</h1>
+                    <p class="mt-4 text-2xl text-slate-700">Undergraduate Student in Software Engineering</p>
+                    <p class="mt-2 text-lg text-slate-500">School of Computer Science, Central China Normal University, Wuhan, China</p>
+
+                    <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div class="signal rounded-2xl p-4">
+                            <div class="text-xs font-semibold uppercase tracking-wide text-teal-700">Current Focus</div>
+                            <div class="mt-1 text-lg font-semibold text-slate-950">Robotic Grasping</div>
+                        </div>
+                        <div class="signal rounded-2xl p-4">
+                            <div class="text-xs font-semibold uppercase tracking-wide text-teal-700">Academic Base</div>
+                            <div class="mt-1 text-lg font-semibold text-slate-950">CCNU · Wuhan</div>
+                        </div>
+                        <div class="signal rounded-2xl p-4">
+                            <div class="text-xs font-semibold uppercase tracking-wide text-teal-700">Origin</div>
+                            <div class="mt-1 text-lg font-semibold text-slate-950">Chongqing, China</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7 flex flex-wrap items-center gap-3 text-sm">
+                        <a href="https://github.com/anrsimine" target="_blank"
+                           class="inline-flex items-center gap-x-2 px-4 py-2 bg-slate-950 text-white rounded-xl font-semibold hover:bg-slate-800">
+                            <i class="fa-brands fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="#research" class="inline-flex items-center gap-x-2 px-4 py-2 bg-white border border-slate-300 rounded-xl font-semibold hover:bg-slate-50">
+                            <i class="fa-solid fa-arrow-down"></i>
+                            <span>Research Focus</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="flex-1">
-                <h1 class="text-5xl font-semibold tracking-tighter text-slate-900">Junjian Wei</h1>
-                <p class="mt-2 text-2xl text-slate-600">Undergraduate Student in Software Engineering</p>
-                <p class="mt-1 text-lg text-slate-500">School of Computer Science, Central China Normal University</p>
-                
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="research-tag">Robotic Grasping</span>
-                    <span class="research-tag">Robot Perception</span>
-                    <span class="research-tag">Manipulation Planning</span>
-                    <span class="research-tag">Embodied AI</span>
-                </div>
-                
-                <div class="mt-6 flex items-center gap-x-4 text-sm">
-                    <a href="https://github.com/anrsimine" target="_blank" 
-                       class="inline-flex items-center gap-x-2 px-4 py-2 bg-white border border-slate-300 rounded-xl text-sm font-medium hover:bg-slate-50">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <!-- Add your email / Google Scholar / ORCID here -->
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="research-tag">
+                        <i class="fa-solid fa-hand text-teal-600 text-xl"></i>
+                        <div>
+                            <strong>Robotic Grasping</strong>
+                            <span>Grasp detection and execution stability</span>
+                        </div>
+                    </div>
+                    <div class="research-tag">
+                        <i class="fa-solid fa-eye text-blue-600 text-xl"></i>
+                        <div>
+                            <strong>Robot Perception</strong>
+                            <span>Vision, depth, and geometry for action</span>
+                        </div>
+                    </div>
+                    <div class="research-tag">
+                        <i class="fa-solid fa-route text-amber-600 text-xl"></i>
+                        <div>
+                            <strong>Planning</strong>
+                            <span>From perceived affordance to movement</span>
+                        </div>
+                    </div>
+                    <div class="research-tag">
+                        <i class="fa-solid fa-cubes text-rose-600 text-xl"></i>
+                        <div>
+                            <strong>Embodied AI</strong>
+                            <span>Reproducible intelligent manipulation</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- About -->
-    <section id="about" class="max-w-5xl mx-auto px-6 pb-16">
+    <section id="about" class="max-w-6xl mx-auto px-6 pb-14">
         <h2 class="section-header">About</h2>
         <div class="prose prose-slate max-w-none text-[15.5px] leading-relaxed text-slate-700">
             <p>Junjian Wei is an undergraduate student majoring in Software Engineering at the School of Computer Science, Central China Normal University (CCNU), Wuhan, China. His research centers on robotic grasping in unstructured environments, with a focus on perception-guided grasp planning, affordance reasoning, geometric understanding, and reliable manipulation execution.</p>
@@ -122,37 +209,37 @@
     </section>
 
     <!-- Research Interests -->
-    <section id="research" class="max-w-5xl mx-auto px-6 pb-16">
+    <section id="research" class="max-w-6xl mx-auto px-6 pb-14">
         <h2 class="section-header">Research Interests</h2>
         
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="academic-card bg-white p-6 rounded-2xl border border-slate-200">
-                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-2">
-                    <i class="fa-solid fa-hand-paper text-blue-600"></i> 
+        <div class="grid md:grid-cols-2 gap-5">
+            <div class="academic-card focus-card p-6 rounded-2xl">
+                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-3">
+                    <span class="focus-icon"><i class="fa-solid fa-hand"></i></span>
                     Robotic Grasping
                 </h3>
                 <p class="text-slate-600 text-[15px]">Grasp detection, pose estimation, and execution stability for unknown objects in unstructured environments.</p>
             </div>
             
-            <div class="academic-card bg-white p-6 rounded-2xl border border-slate-200">
-                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-2">
-                    <i class="fa-solid fa-eye text-blue-600"></i> 
+            <div class="academic-card focus-card p-6 rounded-2xl">
+                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-3">
+                    <span class="focus-icon"><i class="fa-solid fa-eye"></i></span>
                     Robot Perception
                 </h3>
                 <p class="text-slate-600 text-[15px]">Fusion of visual, depth, and geometric information for robotic manipulation tasks.</p>
             </div>
             
-            <div class="academic-card bg-white p-6 rounded-2xl border border-slate-200">
-                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-2">
-                    <i class="fa-solid fa-project-diagram text-blue-600"></i> 
+            <div class="academic-card focus-card p-6 rounded-2xl">
+                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-3">
+                    <span class="focus-icon"><i class="fa-solid fa-route"></i></span>
                     Manipulation Planning
                 </h3>
                 <p class="text-slate-600 text-[15px]">Planning, evaluation, and closed-loop control from perception to executable actions.</p>
             </div>
             
-            <div class="academic-card bg-white p-6 rounded-2xl border border-slate-200">
-                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-2">
-                    <i class="fa-solid fa-cogs text-blue-600"></i> 
+            <div class="academic-card focus-card p-6 rounded-2xl">
+                <h3 class="font-semibold text-lg mb-2 flex items-center gap-x-3">
+                    <span class="focus-icon"><i class="fa-solid fa-cubes"></i></span>
                     Software Engineering for Robotics
                 </h3>
                 <p class="text-slate-600 text-[15px]">Emphasis on reproducibility, modular system design, and reliable automation of experimental pipelines.</p>
@@ -161,7 +248,7 @@
     </section>
 
     <!-- Education -->
-    <section id="education" class="max-w-5xl mx-auto px-6 pb-16">
+    <section id="education" class="max-w-6xl mx-auto px-6 pb-14">
         <h2 class="section-header">Education</h2>
         
         <div class="space-y-6">
@@ -177,14 +264,14 @@
             <div class="flex gap-6">
                 <div class="w-28 flex-shrink-0 text-sm text-slate-500 pt-1">Sep 2002</div>
                 <div>
-                    <div class="font-semibold">Born in Wuhan, Hubei, China</div>
+                    <div class="font-semibold">Born in Chongqing, China</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="max-w-5xl mx-auto px-6 pb-16">
+    <section id="projects" class="max-w-6xl mx-auto px-6 pb-14">
         <h2 class="section-header">Projects</h2>
         
         <div class="space-y-6">
@@ -206,7 +293,7 @@
     </section>
 
     <!-- Publications -->
-    <section id="publications" class="max-w-5xl mx-auto px-6 pb-16">
+    <section id="publications" class="max-w-6xl mx-auto px-6 pb-14">
         <h2 class="section-header">Publications</h2>
         <div class="bg-white border border-slate-200 rounded-2xl p-8 text-center">
             <p class="text-slate-500">No peer-reviewed publications yet.</p>
@@ -215,7 +302,7 @@
     </section>
 
     <!-- Updates -->
-    <section class="max-w-5xl mx-auto px-6 pb-16">
+    <section class="max-w-6xl mx-auto px-6 pb-14">
         <h2 class="section-header">Updates</h2>
         <div class="space-y-3 text-sm">
             <div class="flex gap-4">
@@ -230,7 +317,7 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="max-w-5xl mx-auto px-6 pb-20">
+    <section id="contact" class="max-w-6xl mx-auto px-6 pb-20">
         <h2 class="section-header">Contact</h2>
         <div class="bg-white border border-slate-200 rounded-2xl p-8">
             <div class="grid md:grid-cols-2 gap-y-4 text-sm">
@@ -249,7 +336,7 @@
     </section>
 
     <footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-400">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-6">
             © Junjian Wei • Last updated: July 2026<br>
             Built with a focus on clarity and academic presentation.
         </div>
@@ -269,7 +356,7 @@
         
         // Tailwind script
         function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent', '#1e40af');
+            document.documentElement.style.setProperty('--accent', '#0f766e');
         }
         initializeTailwind();
     </script>
